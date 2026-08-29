@@ -82,13 +82,12 @@ export default function Navbar() {
             className="flex items-center gap-2.5 shrink-0 text-left"
             aria-label="K.A.S Harvesters Home"
           >
-            {/* Logo Icon (Green badge with Harvester SVG) */}
-            <div className="w-12 h-12 rounded-full bg-[#0B3A1C] flex items-center justify-center shadow-md shrink-0">
-              <svg className="w-7 h-7 text-white fill-current" viewBox="0 0 24 24">
-                {/* Simplified Combine Harvester Silhouette */}
-                <path d="M3 13.5h3.5v2.5H3zm4.5-3h9v5.5h-9zm10.5 3H21v2.5h-3zM2 17h20v2.5H2zM4 6.5l3.5 3h9l3.5-3z" />
-              </svg>
-            </div>
+            {/* Logo Image */}
+            <img
+              src="/Logo/K.A.S Logo.png"
+              alt="K.A.S Harvesters Logo"
+              className="h-11 w-auto object-contain shrink-0"
+            />
 
             {/* Brand text */}
             <div className="leading-none">

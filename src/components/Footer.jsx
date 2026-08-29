@@ -64,11 +64,11 @@ export default function Footer() {
           {/* Column 1: Brand Info */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
-                <svg className="w-6 h-6 text-[#0B3A1C] fill-current" viewBox="0 0 24 24">
-                  <path d="M3 13.5h3.5v2.5H3zm4.5-3h9v5.5h-9zm10.5 3H21v2.5h-3zM2 17h20v2.5H2zM4 6.5l3.5 3h9l3.5-3z" />
-                </svg>
-              </div>
+              <img
+                src="/Logo/K.A.S Logo.png"
+                alt="K.A.S Harvesters Logo"
+                className="h-12 w-auto object-contain shrink-0"
+              />
               <div className="leading-none text-left">
                 <div className="font-sans font-black text-white text-lg tracking-tight">K.A.S</div>
                 <div className="font-sans font-black text-white text-lg tracking-tight -mt-1">HARVESTERS</div>

@@ -63,11 +63,11 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Main content */}
-        <div className="flex-1 flex flex-col justify-between px-5 pt-6 pb-8">
+        {/* Main content — text fills the space, buttons pinned to bottom */}
+        <div className="flex-1 flex flex-col px-5 pt-6 pb-4">
 
-          {/* Text block */}
-          <div>
+          {/* Text block grows to fill */}
+          <div className="flex-1">
             {/* Brand heading */}
             <motion.h1
               initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
@@ -97,19 +97,18 @@ export default function Hero() {
               Professional Combine Harvesting &amp; Agricultural Machinery Services
             </motion.p>
 
-            {/* Tagline — pill with brush bg */}
+            {/* Tagline pill */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.35, duration: 0.38 }}
-              className="mb-6"
             >
               <div
-                className="inline-flex items-center justify-center w-full py-3 px-6 rounded-full"
+                className="inline-flex items-center justify-center w-full py-2.5 px-6 rounded-full"
                 style={{ background: '#1a5c2a' }}
               >
                 <span
-                  className="font-tamil font-black italic text-[#FAD02C] text-center"
-                  style={{ fontSize: 'clamp(1rem, 5vw, 1.2rem)' }}
+                  className="font-tamil font-black italic text-[#FAD02C] text-center whitespace-nowrap"
+                  style={{ fontSize: 'clamp(0.85rem, 4vw, 1.05rem)' }}
                 >
                   உங்கள் வயல்... எங்கள் பொறுப்பு!
                 </span>
@@ -117,23 +116,23 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* CTA buttons — full-width stacked */}
+          {/* ── CTA buttons — horizontal row, pinned at bottom of BG ── */}
           <motion.div
-            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.44, duration: 0.4 }}
-            className="flex flex-col gap-3"
+            className="flex flex-row gap-2 mt-5"
           >
             {/* Call Now */}
             <a
               href={BUSINESS.phoneLink}
-              className="flex items-center gap-3 bg-[#0d3d1c] hover:bg-[#0a2e15] active:scale-[0.98] text-white pl-3 pr-5 py-3.5 rounded-full shadow-lg transition-all"
+              className="flex-1 flex flex-col items-center justify-center gap-1 bg-[#0d3d1c] hover:bg-[#0a2e15] active:scale-[0.97] text-white py-2.5 px-2 rounded-2xl shadow-lg transition-all"
             >
-              <span className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
-                <Phone size={18} />
+              <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                <Phone size={14} />
               </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-tamil text-[11px] text-green-200 mb-1">இன்றே அழைக்கவும்</span>
-                <span className="font-bold text-base">Call Now</span>
+              <span className="flex flex-col items-center leading-none">
+                <span className="font-tamil text-[8px] text-green-200 mb-[2px]">இன்றே அழைக்கவும்</span>
+                <span className="font-bold text-[11px]">Call Now</span>
               </span>
             </a>
 
@@ -141,14 +140,14 @@ export default function Hero() {
             <a
               href={BUSINESS.whatsapp}
               target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1db954] active:scale-[0.98] text-white pl-3 pr-5 py-3.5 rounded-full shadow-lg transition-all"
+              className="flex-1 flex flex-col items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1db954] active:scale-[0.97] text-white py-2.5 px-2 rounded-2xl shadow-lg transition-all"
             >
-              <span className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
-                <WaIcon size={18} />
+              <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                <WaIcon size={14} />
               </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-tamil text-[11px] text-green-100 mb-1">WhatsApp மூலம் தொடர்பு</span>
-                <span className="font-bold text-base">WhatsApp</span>
+              <span className="flex flex-col items-center leading-none">
+                <span className="font-tamil text-[8px] text-green-100 mb-[2px]">WhatsApp தொடர்பு</span>
+                <span className="font-bold text-[11px]">WhatsApp</span>
               </span>
             </a>
 
@@ -156,14 +155,14 @@ export default function Hero() {
             <a
               href={BUSINESS.mapsUrl}
               target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-white hover:bg-gray-50 active:scale-[0.98] text-gray-800 border border-gray-200 pl-3 pr-5 py-3.5 rounded-full shadow-md transition-all"
+              className="flex-1 flex flex-col items-center justify-center gap-1 bg-white hover:bg-gray-50 active:scale-[0.97] text-gray-800 border border-gray-200 py-2.5 px-2 rounded-2xl shadow-md transition-all"
             >
-              <span className="w-10 h-10 rounded-full bg-green-50 border border-green-200 flex items-center justify-center shrink-0">
-                <MapPin size={18} className="text-green-700" />
+              <span className="w-8 h-8 rounded-full bg-green-50 border border-green-200 flex items-center justify-center shrink-0">
+                <MapPin size={14} className="text-green-700" />
               </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-tamil text-[11px] text-gray-400 mb-1">இருப்பிடத்தை பார்க்க</span>
-                <span className="font-bold text-base">Get Directions</span>
+              <span className="flex flex-col items-center leading-none">
+                <span className="font-tamil text-[8px] text-gray-400 mb-[2px]">இருப்பிடம்</span>
+                <span className="font-bold text-[11px]">Get Directions</span>
               </span>
             </a>
           </motion.div>
@@ -226,8 +225,8 @@ export default function Hero() {
               <svg viewBox="0 0 340 52" className="absolute inset-0 w-full h-full" preserveAspectRatio="none" aria-hidden="true">
                 <path d="M8,38 C2,34 0,26 4,20 C6,14 14,10 28,8 C60,4 100,2 148,3 C196,4 242,5 278,6 C304,7 324,8 334,14 C340,18 340,26 336,33 C332,40 322,44 304,46 C276,49 234,50 186,50 C138,50 90,49 52,47 C30,46 12,44 8,38 Z" fill="#0d5c45"/>
               </svg>
-              <span className="relative z-10 font-tamil font-black italic text-[#FAD02C] px-8 py-2 block text-center"
-                style={{ fontSize: 'clamp(0.92rem, 1.8vw, 1.12rem)' }}>
+              <span className="relative z-10 font-tamil font-black italic text-[#FAD02C] px-8 py-2 block text-center whitespace-nowrap"
+                style={{ fontSize: 'clamp(0.82rem, 1.6vw, 1rem)' }}>
                 உங்கள் வயல்... எங்கள் பொறுப்பு!
               </span>
             </motion.div>
