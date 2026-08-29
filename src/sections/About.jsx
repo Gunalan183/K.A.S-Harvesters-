@@ -46,24 +46,6 @@ export default function About() {
                 </a>
               </div>
 
-              {/* Owner photo portrait portion */}
-              <div className="w-full sm:w-[152px] shrink-0">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-[#E8F5E9] aspect-[152/228] w-full"
-                >
-                  <img
-                    src="/images/owner_photo.jpg"
-                    alt="Mr. Arularasan K - Owner KAS Harvesters"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              </div>
-
             </div>
           </div>
 
@@ -86,18 +68,17 @@ export default function About() {
 
             {/* Map image & Directions button */}
             <div className="space-y-4">
-              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 bg-gray-50 h-28 relative">
-                <img
-                  src="/images/map_snippet.jpg"
-                  alt="Location Maps Snippet"
+              <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 bg-gray-50 h-44">
+                <iframe
+                  title="K.A.S Harvesters Location"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3498.335150080177!2d79.6745210500668!3d11.332482725211543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1788004291933!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: '176px' }}
+                  allowFullScreen=""
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  referrerPolicy="strict-origin-when-cross-origin"
                 />
-                {/* Visual red pin overlay in center for premium aesthetics */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping absolute" />
-                  <div className="w-2 h-2 rounded-full bg-red-600 relative" />
-                </div>
               </div>
 
               <a
