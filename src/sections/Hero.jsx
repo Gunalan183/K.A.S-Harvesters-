@@ -76,10 +76,12 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="font-black text-[#0d3d1c] leading-none tracking-tight mb-2 text-center"
+              className="font-black leading-none tracking-tight mb-2 text-center"
               style={{ fontSize: 'clamp(2.4rem, 11vw, 3.2rem)', fontFamily: "'IBM Plex Serif', serif" }}
             >
-              K.A.S<br />HARVESTERS
+              <span className="text-[#0B3A1C]">K.A.S</span>
+              <br />
+              <span className="text-[#FAB818] drop-shadow-sm">HARVESTERS</span>
             </motion.h1>
 
             {/* Tamil heading */}
@@ -113,7 +115,7 @@ export default function Hero() {
           </div>
 
           {/* Spacer to push buttons and trust bar to the bottom */}
-          <div className="flex-1 min-h-[30px]" />
+          <div className="min-h-[250px] flex-grow" />
 
           {/* ── CTA buttons — horizontal row, pinned at bottom of BG ── */}
           <motion.div
@@ -235,10 +237,12 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="font-black text-[#0d3d1c] leading-none tracking-tight mb-2"
+              className="font-black leading-none tracking-tight mb-2"
               style={{ fontSize: 'clamp(2.2rem, 5.5vw, 3.6rem)', fontFamily: "'IBM Plex Serif', serif" }}
             >
-              K.A.S<br />HARVESTERS
+              <span className="text-[#0B3A1C]">K.A.S</span>
+              <br />
+              <span className="text-[#FAB818] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.15)]">HARVESTERS</span>
             </motion.h1>
 
             <motion.p

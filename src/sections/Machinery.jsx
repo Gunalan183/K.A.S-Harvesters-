@@ -8,7 +8,7 @@ const machines = [
     name: 'Kartar 4000 Combine Harvester',
     subtitleTa: 'நவீன அறுவடை இயந்திரம்',
     descTa: 'Kartar 4000 Combine Harvester மூலம் திறமையான மற்றும் நம்பிக்கையான அறுவடை சேவை.',
-    image: '/images/karthar-01.jpeg',
+    image: '/images/karthar-with-loory.png',
   },
   {
     name: 'Tractor',

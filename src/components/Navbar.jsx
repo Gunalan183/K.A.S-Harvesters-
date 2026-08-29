@@ -107,24 +107,27 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Phone Button */}
-          <a
-            href={BUSINESS.phoneLink}
-            className="flex items-center gap-2 bg-[#FAB818] hover:bg-[#e0a412] text-[#0B3A1C] font-black text-sm px-5 py-2.5 rounded-full transition-all shadow-md shrink-0 font-sans"
-            aria-label={`Call ${BUSINESS.phone}`}
-          >
-            <Phone size={15} className="fill-current text-[#0B3A1C]" />
-            <span>{BUSINESS.phone}</span>
-          </a>
+          {/* Controls Group */}
+          <div className="flex items-center gap-3">
+            {/* Phone Button */}
+            <a
+              href={BUSINESS.phoneLink}
+              className="flex items-center gap-2 bg-[#FAB818] hover:bg-[#e0a412] text-[#0B3A1C] font-black text-sm px-5 py-2.5 rounded-full transition-all shadow-md shrink-0 font-sans"
+              aria-label={`Call ${BUSINESS.phone}`}
+            >
+              <Phone size={15} className="fill-current text-[#0B3A1C]" />
+              <span>{BUSINESS.phone}</span>
+            </a>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="lg:hidden p-2 rounded-lg text-[#0B3A1C] hover:bg-gray-100 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setOpen(!open)}
+              className="lg:hidden p-2 rounded-lg text-[#0B3A1C] hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
