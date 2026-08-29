@@ -2,15 +2,9 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Play, Camera, Video } from 'lucide-react';
 import SectionWrapper from '../components/SectionWrapper';
-import { GALLERY_ITEMS, VIDEOS, BUSINESS } from '../data/constants';
+import { VIDEOS, BUSINESS } from '../data/constants';
 
-const CATEGORIES = [
-  { id: 'all', labelTa: 'அனைத்து' },
-  { id: 'harvester', labelTa: 'ஹார்வெஸ்டர்' },
-  { id: 'tractor', labelTa: 'டிராக்டர்' },
-  { id: 'lorry', labelTa: 'லாரி' },
-  { id: 'field', labelTa: 'வயல் பணி' },
-];
+
 
 function VideoModal({ video, onClose }) {
   const videoRef = useRef(null);
@@ -56,28 +50,25 @@ function VideoModal({ video, onClose }) {
   );
 }
 
+// The 6 specific photos to showcase
+const PHOTO_ITEMS = [
+  { src: '/images/tractor-karthar-lorry.jpeg',   alt: 'K.A.S Harvesters Kartar 4000 Combine Harvester', caption: 'Kartar 4000 Combine Harvester' },
+  { src: '/images/karthar-01.jpeg',             alt: 'Kartar Harvester close view',                     caption: 'Kartar Harvester close view' },
+  { src: '/images/karthar-in-place.jpeg',       alt: 'Kartar Harvester in field',                       caption: 'Kartar Harvester in field' },
+  { src: '/images/karthar-with-lorry-02.jpeg',  alt: 'K.A.S Harvesters combine harvester with lorry',   caption: 'Harvester with Lorry' },
+  { src: '/images/karthar-with-lorry-03.jpeg',  alt: 'Harvester with transport lorry',                  caption: 'Harvester with transport lorry' },
+  { src: '/images/karthar-with-lorry.jpeg',     alt: 'Kartar harvester loaded on lorry',                caption: 'Kartar harvester loaded on lorry' },
+];
+
 export default function Gallery() {
-  const [activeCategory, setActiveCategory] = useState('all');
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [activeVideo, setActiveVideo] = useState(null);
 
-  // Filter gallery items:
-  // If 'field', we map to 'harvester' or filter nicely.
-  // Let's fallback to specific logic or filter by category field.
-  const filtered = GALLERY_ITEMS.filter((img) => {
-    if (activeCategory === 'all') return true;
-    if (activeCategory === 'field') {
-      return img.category === 'harvester' && img.caption.includes('வயல்');
-    }
-    return img.category === activeCategory;
-  }).slice(0, 6); // Limit to 6 items to match the 3x2 grid of mockup
-
   const openLightbox = (index) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
-  const prev = () => setLightboxIndex((i) => (i - 1 + filtered.length) % filtered.length);
-  const next = () => setLightboxIndex((i) => (i + 1) % filtered.length);
+  const prev = () => setLightboxIndex((i) => (i - 1 + PHOTO_ITEMS.length) % PHOTO_ITEMS.length);
+  const next = () => setLightboxIndex((i) => (i + 1) % PHOTO_ITEMS.length);
 
-  // Keyboard navigation
   const handleKey = (e) => {
     if (lightboxIndex === null) return;
     if (e.key === 'ArrowLeft') prev();
@@ -86,61 +77,121 @@ export default function Gallery() {
   };
 
   return (
-    <SectionWrapper id="gallery" className="py-16 bg-white relative" onKeyDown={handleKey}>
+    <SectionWrapper id="gallery" className="py-16 bg-[#f7faf7] relative" onKeyDown={handleKey}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
-          {/* ── Left Column: Photo Gallery (60% Width) ── */}
+          {/* ── Left Column: Photo Gallery ── */}
           <div className="lg:col-span-7 flex flex-col">
-            <h2 className="font-tamil text-2xl md:text-3xl font-black text-[#0B3A1C] mb-6 text-left">
-              எங்கள் பணியின் புகைப்படங்கள்
-            </h2>
 
-            {/* Category Filter Tabs */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-tamil font-bold transition-all border ${activeCategory === cat.id
-                      ? 'bg-[#0B3A1C] text-white border-[#0B3A1C]'
-                      : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
-                    }`}
-                >
-                  {cat.labelTa}
-                </button>
-              ))}
+            {/* Section header */}
+            <div className="mb-7">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-1 h-6 rounded-full bg-[#FAB818] inline-block" />
+                <p className="text-[#FAB818] font-bold text-xs uppercase tracking-widest">Our Work</p>
+              </div>
+              <h2 className="font-tamil text-2xl md:text-3xl font-black text-[#0B3A1C] leading-tight">
+                எங்கள் பணியின் புகைப்படங்கள்
+              </h2>
+              <p className="text-gray-500 text-xs mt-1">Click any photo to view full size</p>
             </div>
 
-            {/* Photos Grid (3x2 layout matching mockup) */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
-              <AnimatePresence mode="popLayout">
-                {filtered.map((img, i) => (
+            {/* Magazine layout: 1 large hero + 2-col grid */}
+            <div className="flex flex-col gap-3">
+
+              {/* Row 1: Featured large image */}
+              <motion.button
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                onClick={() => openLightbox(0)}
+                className="relative group w-full rounded-2xl overflow-hidden bg-gray-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FAB818]"
+                style={{ height: '240px' }}
+                aria-label={PHOTO_ITEMS[0].alt}
+              >
+                <img
+                  src={PHOTO_ITEMS[0].src}
+                  alt={PHOTO_ITEMS[0].alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                {/* Caption badge */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+                  <span className="font-bold text-white text-sm drop-shadow leading-tight">
+                    {PHOTO_ITEMS[0].caption}
+                  </span>
+                  <span className="shrink-0 w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <Camera size={13} className="text-white" />
+                  </span>
+                </div>
+              </motion.button>
+
+              {/* Row 2: 2 medium images */}
+              <div className="grid grid-cols-2 gap-3">
+                {PHOTO_ITEMS.slice(1, 3).map((img, i) => (
                   <motion.button
                     key={img.src}
-                    layout
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.25, delay: i * 0.05 }}
-                    onClick={() => openLightbox(i)}
-                    className="relative group rounded-xl overflow-hidden aspect-video bg-gray-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FAB818]"
-                    aria-label={`View ${img.alt}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    onClick={() => openLightbox(i + 1)}
+                    className="relative group rounded-2xl overflow-hidden bg-gray-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FAB818]"
+                    style={{ height: '160px' }}
+                    aria-label={img.alt}
                   >
                     <img
                       src={img.src}
                       alt={img.alt}
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                    <div className="absolute bottom-2.5 left-2.5 right-2.5">
+                      <span className="font-bold text-white text-[11px] leading-tight line-clamp-1 drop-shadow">
+                        {img.caption}
+                      </span>
+                    </div>
                   </motion.button>
                 ))}
-              </AnimatePresence>
+              </div>
+
+              {/* Row 3: 3 small images */}
+              <div className="grid grid-cols-3 gap-3">
+                {PHOTO_ITEMS.slice(3, 6).map((img, i) => (
+                  <motion.button
+                    key={img.src}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    onClick={() => openLightbox(i + 3)}
+                    className="relative group rounded-xl overflow-hidden bg-gray-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FAB818]"
+                    style={{ height: '110px' }}
+                    aria-label={img.alt}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <span className="font-bold text-white text-[10px] leading-tight line-clamp-2 drop-shadow block">
+                        {img.caption}
+                      </span>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
             </div>
 
             {/* View More Photos Button */}
-            <div className="mt-auto text-left">
+            <div className="mt-5">
               <a
                 href={BUSINESS.whatsapp}
                 target="_blank"
@@ -154,7 +205,7 @@ export default function Gallery() {
           </div>
 
           {/* Divider between columns */}
-          <div className="hidden lg:block lg:col-span-1 w-[1px] bg-gray-150 h-full justify-self-center" />
+          <div className="hidden lg:block lg:col-span-1 w-[1px] bg-gray-200 h-full justify-self-center" />
 
           {/* ── Right Column: Videos (40% Width) ── */}
           <div className="lg:col-span-4 flex flex-col">
@@ -261,13 +312,13 @@ export default function Gallery() {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={filtered[lightboxIndex]?.src}
-                alt={filtered[lightboxIndex]?.alt}
+                src={PHOTO_ITEMS[lightboxIndex]?.src}
+                alt={PHOTO_ITEMS[lightboxIndex]?.alt}
                 className="max-h-[75vh] max-w-full rounded-xl object-contain shadow-2xl"
               />
               <div className="text-center">
-                <p className="font-tamil text-white text-base">{filtered[lightboxIndex]?.caption}</p>
-                <p className="text-white/50 text-xs mt-1">{lightboxIndex + 1} / {filtered.length}</p>
+                <p className="font-tamil text-white text-base">{PHOTO_ITEMS[lightboxIndex]?.caption}</p>
+                <p className="text-white/50 text-xs mt-1">{lightboxIndex + 1} / {PHOTO_ITEMS.length}</p>
               </div>
             </motion.div>
 

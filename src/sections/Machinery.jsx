@@ -20,7 +20,7 @@ const machines = [
     name: 'Lorry / Transport',
     subtitleTa: 'போக்குவரத்து மற்றும் இயந்திரங்கள் எடுத்துச் செல்லும் சேவை',
     descTa: 'விவசாய இயந்திரங்கள் மற்றும் பொருட்களை பாதுகாப்பாக கொண்டு செல்ல.',
-    image: '/images/karthar-with-lorry.jpeg',
+    image: '/images/lorry-06.jpeg',
   },
 ];
 

@@ -67,8 +67,8 @@ export default function About() {
             </div>
           </div>
 
-          {/* ── COLUMN 2: எங்கள் இருப்பிடம் (Location) — 3.5 cols ── */}
-          <div className="lg:col-span-3.5 text-left flex flex-col h-full justify-between">
+          {/* ── COLUMN 2: எங்கள் இருப்பிடம் (Location) — 3 cols ── */}
+          <div className="lg:col-span-3 text-left flex flex-col h-full justify-between">
             <div>
               <h2 className="font-tamil text-2xl md:text-3xl font-black text-[#0B3A1C] mb-4 flex items-center gap-2">
                 எங்கள் இருப்பிடம் 🗺️
@@ -112,8 +112,8 @@ export default function About() {
             </div>
           </div>
 
-          {/* ── COLUMN 3: தொடர்பு கொள்ளுங்கள் (Contact Us) — 3.5 cols ── */}
-          <div className="lg:col-span-3.5 text-left">
+          {/* ── COLUMN 3: தொடர்பு கொள்ளுங்கள் (Contact Us) — 4 cols ── */}
+          <div className="lg:col-span-4 text-left">
             <h2 className="font-tamil text-2xl md:text-3xl font-black text-[#0B3A1C] mb-4 flex items-center gap-2">
               தொடர்பு கொள்ளுங்கள் 📞
             </h2>
