@@ -63,12 +63,21 @@ export default function Hero() {
 
       {/* ── Background image ── */}
       <div className="absolute inset-0 z-0">
+        {/* Mobile background — shown only below md */}
+        <img
+          src="/images/BG_for_mobile_device.png"
+          alt=""
+          aria-hidden="true"
+          fetchpriority="high"
+          className="block md:hidden w-full h-full object-cover object-center"
+        />
+        {/* Desktop background — shown md and above */}
         <img
           src="/images/hero-bg.png"
           alt=""
           aria-hidden="true"
           fetchpriority="high"
-          className="w-full h-full object-cover object-center"
+          className="hidden md:block w-full h-full object-cover object-center"
         />
         {/* subtle dark tint for text legibility — no white wash */}
         <div
