@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:wght@400;700;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-tamil: 'Noto Sans Tamil', 'Inter', sans-serif;
+  --font-sans: 'Inter', 'Noto Sans Tamil', sans-serif;
+  --font-serif: 'Merriweather', serif;
+
+  /* Agricultural Color Palette */
+  --color-agri-green-50: #f0faf0;
+  --color-agri-green-100: #d8f3d8;
+  --color-agri-green-200: #b3e8b3;
+  --color-agri-green-300: #7dd87d;
+  --color-agri-green-400: #4ec14e;
+  --color-agri-green-500: #2da82d;
+  --color-agri-green-600: #1f8a1f;
+  --color-agri-green-700: #1a6e1a;
+  --color-agri-green-800: #175717;
+  --color-agri-green-900: #124712;
+  --color-agri-green-950: #0a2d0a;
+
+  --color-harvest-50: #fffbeb;
+  --color-harvest-100: #fef3c7;
+  --color-harvest-200: #fde68a;
+  --color-harvest-300: #fcd34d;
+  --color-harvest-400: #fbbf24;
+  --color-harvest-500: #f59e0b;
+  --color-harvest-600: #d97706;
+  --color-harvest-700: #b45309;
+  --color-harvest-800: #92400e;
+  --color-harvest-900: #78350f;
+
+  --color-earth-50: #fdf8f0;
+  --color-earth-100: #f5e8d3;
+  --color-earth-200: #ebd1a7;
+  --color-earth-300: #d9b37a;
+  --color-earth-400: #c99352;
+  --color-earth-500: #b8752f;
+  --color-earth-600: #9a5e22;
+  --color-earth-700: #7c4a1a;
+  --color-earth-800: #5e3714;
+  --color-earth-900: #40250e;
+
+  --color-cream: #faf6ef;
+  --color-charcoal: #2d3436;
+  --color-dark-green: #1a4a1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+  background-color: #faf6ef;
+  color: #2d3436;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.font-tamil {
+  font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+}
+
+/* Section dividers */
+.divider-wave {
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0faf0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2da82d;
+  border-radius: 3px;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #2da82d;
+  outline-offset: 2px;
+}
+
+/* Video container */
+video:focus {
+  outline: none;
+}
