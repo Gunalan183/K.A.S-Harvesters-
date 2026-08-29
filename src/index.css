@@ -79,14 +79,6 @@ img {
   transition: opacity 0.3s ease;
 }
 
-img[loading="lazy"] {
-  opacity: 0;
-}
-
-img.loaded {
-  opacity: 1;
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

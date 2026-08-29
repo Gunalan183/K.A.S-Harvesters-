@@ -79,7 +79,7 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => handleNav('#home')}
-            className="flex items-center gap-2.5 shrink-0 text-left"
+            className="flex items-center shrink-0 text-left"
             aria-label="K.A.S Harvesters Home"
           >
             {/* Logo Image */}
@@ -88,12 +88,6 @@ export default function Navbar() {
               alt="K.A.S Harvesters Logo"
               className="h-11 w-auto object-contain shrink-0"
             />
-
-            {/* Brand text */}
-            <div className="leading-none">
-              <div className="font-sans font-black text-[#0B3A1C] text-lg tracking-tight">K.A.S</div>
-              <div className="font-sans font-black text-[#0B3A1C] text-lg tracking-tight -mt-1">HARVESTERS</div>
-            </div>
           </button>
 
           {/* Navigation Links (Tamil Only, matching mockup) */}
@@ -150,8 +144,8 @@ export default function Navbar() {
                   key={link.href}
                   onClick={() => handleNav(link.href)}
                   className={`w-full flex justify-between items-center px-4 py-3 rounded-lg font-tamil font-bold text-sm transition-colors text-left ${active === link.href
-                      ? 'bg-green-50 text-[#FAB818]'
-                      : 'text-[#0B3A1C] hover:bg-green-50'
+                    ? 'bg-green-50 text-[#FAB818]'
+                    : 'text-[#0B3A1C] hover:bg-green-50'
                     }`}
                 >
                   <span>{link.labelTa}</span>
