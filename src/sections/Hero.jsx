@@ -240,9 +240,9 @@ export default function Hero() {
               className="font-black leading-none tracking-tight mb-2"
               style={{ fontSize: 'clamp(2.2rem, 5.5vw, 3.6rem)', fontFamily: "'IBM Plex Serif', serif" }}
             >
-              <span className="text-[#0B3A1C]">K.A.S</span>
+              <span className="text-[#1a5c2a]">K.A.S</span>
               <br />
-              <span className="text-[#FAB818] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.15)]">HARVESTERS</span>
+              <span className="text-[#0d3d1c]">HARVESTERS</span>
             </motion.h1>
 
             <motion.p
